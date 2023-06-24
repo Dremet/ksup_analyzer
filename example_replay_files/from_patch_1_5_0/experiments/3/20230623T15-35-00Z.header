@@ -1,0 +1,174 @@
+{
+    "timeStampUtc": "20230623T13:33:29Z",
+    "optionalColumnFlags": 0,
+    "raceConfiguration": {
+        "eventName": {
+            "text": "Qualifying",
+            "isLocalized": true
+        },
+        "startConfiguration": {
+            "ordering": 5,
+            "positioning": 2,
+            "timing": 1
+        },
+        "raceEndConditionConfig": {
+            "type": 3,
+            "parameter": 2000
+        },
+        "standingComparison": 2,
+        "respawnMode": 0,
+        "penaltyMode": 2,
+        "proximityGhostingMode": 1,
+        "wearMode": 0,
+        "wearCoefficients": {
+            "tireWear": 0,
+            "fuelUse": 0,
+            "vehicleDamage": 0,
+            "environmentDamage": 0
+        },
+        "geometricSlipStreamCoefficient": 0,
+        "standingsSlipStreamCoefficient": 0,
+        "crowdDensity": 0.20000000298023224,
+        "spawnCaravans": false
+    },
+    "track": "sunny-side-track",
+    "path": "Path-A",
+    "configsById": {
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": {
+            "racerName": "VSR | Dremet",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-8-m-1",
+                [
+                    "FFFFFF",
+                    "787878",
+                    "1AA100"
+                ]
+            ],
+            "helmet": "helmet-2-classic-open-face",
+            "helmetLivery": [
+                "helmetmaterial-classic-open-face-6",
+                "444444",
+                "FFF9F9",
+                "FFFFFF",
+                "23561D",
+                "03B317"
+            ],
+            "idleAnimation": "driveranimation-idle-03",
+            "celebrationAnimation": "driveranimation-celebration-02",
+            "vehicle": "gp-spectre",
+            "vehicleLivery": [
+                "vehiclematerial-gp-spectre-8",
+                [
+                    "00980F",
+                    "E6E6E6",
+                    "595959",
+                    "E6E6E6"
+                ],
+                42
+            ],
+            "isAITeam": false
+        },
+        "b68642c8-0406-a305-0000-000000000000": {
+            "racerName": "VSR | McVizn",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-arrows-m-2",
+                [
+                    "FFFFFF",
+                    "00AC17",
+                    "535353"
+                ]
+            ],
+            "helmet": "helmet-0-contemporary-full-face",
+            "helmetLivery": [
+                "helmetmaterial-contemporary-full-face-9",
+                "FFFFFF",
+                "0CA415",
+                "585454",
+                "545454",
+                "12AB35"
+            ],
+            "idleAnimation": "driveranimation-idle-01",
+            "celebrationAnimation": "driveranimation-celebration-08",
+            "vehicle": "gp-spectre",
+            "vehicleLivery": [
+                "vehiclematerial-gp-spectre-3",
+                [
+                    "C741B5",
+                    "B20000",
+                    "DEFF00",
+                    "000101"
+                ],
+                86
+            ],
+            "isAITeam": false
+        }
+    },
+    "raceResult": {
+        "timeStamp": 0,
+        "racerResults": [
+            {
+                "racingTeamId": "b68642c8-0406-a305-0000-000000000000",
+                "vehicle": "gp-spectre",
+                "finishTime": 81.0711059570313,
+                "lapTimes": [
+                    15.3001918792725,
+                    13.9710865020752,
+                    13.736686706543,
+                    13.8112182617188,
+                    13.8017425537109
+                ],
+                "lapTimePenalties": [
+                    1.5,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "bestLapTimeIndex": 2,
+                "starsAchieved": 0,
+                "numLapsLed": 5,
+                "metresDriven": 2747
+            },
+            {
+                "racingTeamId": "dbb5fd6b-1fbc-a5a2-0000-000000000000",
+                "vehicle": "gp-spectre",
+                "finishTime": 81.7610168457031,
+                "lapTimes": [
+                    16.0662841796875,
+                    13.9680309295654,
+                    13.9039764404297,
+                    13.9353218078613,
+                    13.7497253417969
+                ],
+                "lapTimePenalties": [
+                    1.5,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "bestLapTimeIndex": 4,
+                "starsAchieved": 0,
+                "numLapsLed": 1,
+                "metresDriven": 2749
+            }
+        ]
+    },
+    "resultPointsByRacingTeam": {
+        "b68642c8-0406-a305-0000-000000000000": 0,
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": 0
+    },
+    "metadata": {
+        "scenario_id": "d8d62907-c449-41cb-b938-4ca69db1da6b",
+        "scenario_result_id": "6d3c722e-9a2b-48a8-a219-66cbfd0d3b27",
+        "scenario_name": "",
+        "index_in_scenario": 0,
+        "recorder_id": "client"
+    },
+    "compressed": false,
+    "bytesOnDisk": "0006A60F"
+}

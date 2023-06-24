@@ -1,0 +1,6 @@
+Car Class: Any
+Quali: 2 Laps
+Race: 2 Laps
+
+All collisions
+Qualify Once

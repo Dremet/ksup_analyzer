@@ -1,0 +1,160 @@
+{
+    "timeStampUtc": "20230623T13:21:18Z",
+    "optionalColumnFlags": 0,
+    "raceConfiguration": {
+        "eventName": {
+            "text": "Qualifying",
+            "isLocalized": true
+        },
+        "startConfiguration": {
+            "ordering": 5,
+            "positioning": 2,
+            "timing": 1
+        },
+        "raceEndConditionConfig": {
+            "type": 1,
+            "parameter": 2
+        },
+        "standingComparison": 2,
+        "respawnMode": 0,
+        "penaltyMode": 2,
+        "proximityGhostingMode": 0,
+        "wearMode": 0,
+        "wearCoefficients": {
+            "tireWear": 0,
+            "fuelUse": 0,
+            "vehicleDamage": 0,
+            "environmentDamage": 0
+        },
+        "geometricSlipStreamCoefficient": 0,
+        "standingsSlipStreamCoefficient": 0,
+        "crowdDensity": 0.20000000298023224,
+        "spawnCaravans": false
+    },
+    "track": "sunny-side-track",
+    "path": "Path-A",
+    "configsById": {
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": {
+            "racerName": "VSR | Dremet",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-8-m-1",
+                [
+                    "FFFFFF",
+                    "787878",
+                    "1AA100"
+                ]
+            ],
+            "helmet": "helmet-2-classic-open-face",
+            "helmetLivery": [
+                "helmetmaterial-classic-open-face-6",
+                "444444",
+                "FFF9F9",
+                "FFFFFF",
+                "23561D",
+                "03B317"
+            ],
+            "idleAnimation": "driveranimation-idle-03",
+            "celebrationAnimation": "driveranimation-celebration-02",
+            "vehicle": "rally-vost",
+            "vehicleLivery": [
+                "vehiclematerial-rally-vost-7",
+                [
+                    "009506",
+                    "4E4E4E",
+                    "FFFFFF",
+                    "FFFFFF"
+                ],
+                42
+            ],
+            "isAITeam": false
+        },
+        "b68642c8-0406-a305-0000-000000000000": {
+            "racerName": "VSR | McVizn",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-arrows-m-2",
+                [
+                    "FFFFFF",
+                    "00AC17",
+                    "535353"
+                ]
+            ],
+            "helmet": "helmet-0-contemporary-full-face",
+            "helmetLivery": [
+                "helmetmaterial-contemporary-full-face-9",
+                "FFFFFF",
+                "0CA415",
+                "585454",
+                "545454",
+                "12AB35"
+            ],
+            "idleAnimation": "driveranimation-idle-01",
+            "celebrationAnimation": "driveranimation-celebration-08",
+            "vehicle": "sprint-car-tubular",
+            "vehicleLivery": [
+                "vehiclematerial-sprint-car-generic-5",
+                [
+                    "199501",
+                    "FFFFFF",
+                    "3A3A3A",
+                    "FFFFFF"
+                ],
+                86
+            ],
+            "isAITeam": false
+        }
+    },
+    "raceResult": {
+        "timeStamp": 0,
+        "racerResults": [
+            {
+                "racingTeamId": "b68642c8-0406-a305-0000-000000000000",
+                "vehicle": "sprint-car-tubular",
+                "finishTime": 54.8584899902344,
+                "lapTimes": [
+                    16.4450607299805
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 1,
+                "metresDriven": 912
+            },
+            {
+                "racingTeamId": "dbb5fd6b-1fbc-a5a2-0000-000000000000",
+                "vehicle": "rally-vost",
+                "finishTime": 49.0476989746094,
+                "lapTimes": [
+                    16.6125755310059,
+                    16.4930267333984
+                ],
+                "lapTimePenalties": [
+                    0,
+                    0
+                ],
+                "bestLapTimeIndex": 1,
+                "starsAchieved": 0,
+                "numLapsLed": 2,
+                "metresDriven": 1437
+            }
+        ]
+    },
+    "resultPointsByRacingTeam": {
+        "b68642c8-0406-a305-0000-000000000000": 0,
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": 0
+    },
+    "metadata": {
+        "scenario_id": "a881ed12-2a75-4b00-b69b-a8c4af37d7b8",
+        "scenario_result_id": "5edaadf9-7f66-4d0a-9d1a-4210f63db0d9",
+        "scenario_name": "",
+        "index_in_scenario": 0,
+        "recorder_id": "client"
+    },
+    "compressed": false,
+    "bytesOnDisk": "000378BB"
+}

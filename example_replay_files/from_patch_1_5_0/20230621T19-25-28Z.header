@@ -1,0 +1,466 @@
+{
+    "timeStampUtc": "20230621T17:24:10Z",
+    "optionalColumnFlags": 0,
+    "raceConfiguration": {
+        "eventName": {
+            "text": "Qualifier",
+            "isLocalized": true
+        },
+        "startConfiguration": {
+            "ordering": 5,
+            "positioning": 2,
+            "timing": 1
+        },
+        "raceEndConditionConfig": {
+            "type": 1,
+            "parameter": 1
+        },
+        "standingComparison": 2,
+        "respawnMode": 0,
+        "penaltyMode": 1,
+        "proximityGhostingMode": 1,
+        "wearMode": 0,
+        "wearCoefficients": {
+            "tireWear": 0,
+            "fuelUse": 0,
+            "vehicleDamage": 0,
+            "environmentDamage": 0
+        },
+        "geometricSlipStreamCoefficient": 0,
+        "standingsSlipStreamCoefficient": 0,
+        "crowdDensity": 0.5,
+        "spawnCaravans": false
+    },
+    "track": "copperwood-track",
+    "path": "Path-B",
+    "configsById": {
+        "dd74aa45-5d27-f36a-0000-000000000000": {
+            "racerName": "Alp | Hearty",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-7-m-1",
+                [
+                    "8A0012",
+                    "2FA8C7",
+                    "000000"
+                ]
+            ],
+            "helmet": "helmet-1-modern-full-face",
+            "helmetLivery": [
+                "helmetmaterial-modern-full-face-7",
+                "5860D2",
+                "0918D4",
+                "9DA2DC",
+                "FFA33D",
+                "838383"
+            ],
+            "idleAnimation": "driveranimation-idle-09",
+            "celebrationAnimation": "driveranimation-celebration-10",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-4",
+                [
+                    "1A14B3",
+                    "FF9613",
+                    "FF0000",
+                    "DA4001"
+                ],
+                39
+            ],
+            "isAITeam": false
+        },
+        "422cce46-f679-7528-0000-000000000000": {
+            "racerName": "Amko_vettel",
+            "platform": "PS4",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-satellite-m-3",
+                [
+                    "FF0000",
+                    "FFFFFF",
+                    "FF0000"
+                ]
+            ],
+            "helmet": "helmet-1-modern-full-face",
+            "helmetLivery": [
+                "helmetmaterial-modern-full-face-1",
+                "181818",
+                "A20421",
+                "A30000",
+                "020000",
+                "010101"
+            ],
+            "idleAnimation": "driveranimation-idle-13",
+            "celebrationAnimation": "driveranimation-celebration-01",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-2",
+                [
+                    "FF092A",
+                    "FF0000",
+                    "1D1C29",
+                    "333333"
+                ],
+                5
+            ],
+            "isAITeam": false
+        },
+        "743c87f5-f71c-aa7e-0000-000000000000": {
+            "racerName": "GR | Gramitive",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-10-m-1",
+                [
+                    "2A72BC",
+                    "474646",
+                    "FFFFFF"
+                ]
+            ],
+            "helmet": "helmet-1-modern-full-face",
+            "helmetLivery": [
+                "helmetmaterial-modern-full-face-2",
+                "E3E3E3",
+                "3070B3",
+                "363636",
+                "588ABC",
+                "DADADA"
+            ],
+            "idleAnimation": "driveranimation-idle-08",
+            "celebrationAnimation": "driveranimation-celebration-06",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-2",
+                [
+                    "2A6EB9",
+                    "E4E4E4",
+                    "212020",
+                    "797979"
+                ],
+                27
+            ],
+            "isAITeam": false
+        },
+        "ee2ed473-5270-66f5-0000-000000000000": {
+            "racerName": "BCR NicoB_",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-10-m-1",
+                [
+                    "001265",
+                    "FFFFFF",
+                    "8B0000"
+                ]
+            ],
+            "helmet": "helmet-0-contemporary-full-face",
+            "helmetLivery": [
+                "helmetmaterial-contemporary-full-face-10",
+                "0F3975",
+                "FFFFFF",
+                "990000",
+                "F60E00",
+                "010000"
+            ],
+            "idleAnimation": "driveranimation-idle-15",
+            "celebrationAnimation": "driveranimation-celebration-14",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-0",
+                [
+                    "C8C8C8",
+                    "C8C8C8",
+                    "C8C8C8",
+                    "C8C8C8"
+                ],
+                10
+            ],
+            "isAITeam": false
+        },
+        "e8aaba4d-c796-6d32-0000-000000000000": {
+            "racerName": "llormaetS",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-asymmetric-m-1",
+                [
+                    "FF7300",
+                    "211F1F",
+                    "C52C00"
+                ]
+            ],
+            "helmet": "helmet-0-contemporary-full-face",
+            "helmetLivery": [
+                "helmetmaterial-contemporary-full-face-3",
+                "181818",
+                "C83800",
+                "FF8100",
+                "A60038",
+                "FF7036"
+            ],
+            "idleAnimation": "driveranimation-idle-03",
+            "celebrationAnimation": "driveranimation-celebration-02",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-4",
+                [
+                    "222222",
+                    "FF8600",
+                    "B52900",
+                    "181717"
+                ],
+                53
+            ],
+            "isAITeam": false
+        },
+        "dac4d3d4-4973-1865-0000-000000000000": {
+            "racerName": "EdoPardo",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-f",
+            "driverSkinLivery": [
+                "driverskinmaterial-stripes-f-1",
+                [
+                    "DDDDDD",
+                    "FF1A23",
+                    "373737"
+                ]
+            ],
+            "helmet": "helmet-2-classic-open-face",
+            "helmetLivery": [
+                "helmetmaterial-classic-open-face-2",
+                "468741",
+                "C80005",
+                "FDFDFD",
+                "BF4696",
+                "3484BA"
+            ],
+            "idleAnimation": "driveranimation-idle-13",
+            "celebrationAnimation": "driveranimation-celebration-06",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-3",
+                [
+                    "8B3912",
+                    "B46F4C",
+                    "A4A4A4",
+                    "BCBCBC"
+                ],
+                26
+            ],
+            "isAITeam": false
+        },
+        "039fb580-f6df-8194-0000-000000000000": {
+            "racerName": "ctc_666",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-7-m-1",
+                [
+                    "000000",
+                    "002DE1",
+                    "20E400"
+                ]
+            ],
+            "helmet": "helmet-0-contemporary-full-face",
+            "helmetLivery": [
+                "helmetmaterial-contemporary-full-face-8",
+                "010000",
+                "0140FF",
+                "86FF2A",
+                "020000",
+                "67FF1B"
+            ],
+            "idleAnimation": "driveranimation-idle-13",
+            "celebrationAnimation": "driveranimation-celebration-05",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-3",
+                [
+                    "000000",
+                    "47FF00",
+                    "0022DD",
+                    "55FF23"
+                ],
+                69
+            ],
+            "isAITeam": false
+        },
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": {
+            "racerName": "VSR | Dremet",
+            "platform": "PC",
+            "driverSkin": "driverskin-classic-m",
+            "driverSkinLivery": [
+                "driverskinmaterial-8-m-1",
+                [
+                    "FFFFFF",
+                    "3E3E3E",
+                    "00AF09"
+                ]
+            ],
+            "helmet": "helmet-2-classic-open-face",
+            "helmetLivery": [
+                "helmetmaterial-classic-open-face-6",
+                "444444",
+                "FFF9F9",
+                "FFFFFF",
+                "23561D",
+                "03B317"
+            ],
+            "idleAnimation": "driveranimation-idle-03",
+            "celebrationAnimation": "driveranimation-celebration-02",
+            "vehicle": "stock-car",
+            "vehicleLivery": [
+                "vehiclematerial-stock-car-9",
+                [
+                    "008D0E",
+                    "FFFFFF",
+                    "444444",
+                    "FFFDFD"
+                ],
+                42
+            ],
+            "isAITeam": false
+        }
+    },
+    "raceResult": {
+        "timeStamp": 0,
+        "racerResults": [
+            {
+                "racingTeamId": "dd74aa45-5d27-f36a-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 39.5282554626465,
+                "lapTimes": [
+                    20.6679229736328
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 1,
+                "metresDriven": 1469
+            },
+            {
+                "racingTeamId": "039fb580-f6df-8194-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 39.8694000244141,
+                "lapTimes": [
+                    20.7724895477295
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 1483
+            },
+            {
+                "racingTeamId": "e8aaba4d-c796-6d32-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 40.544017791748,
+                "lapTimes": [
+                    20.8403053283691
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 1490
+            },
+            {
+                "racingTeamId": "dbb5fd6b-1fbc-a5a2-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 48.3726768493652,
+                "lapTimes": [
+                    20.9222717285156
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 1364
+            },
+            {
+                "racingTeamId": "dac4d3d4-4973-1865-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 38.9760360717773,
+                "lapTimes": [
+                    21.1717414855957
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 1,
+                "metresDriven": 1463
+            },
+            {
+                "racingTeamId": "ee2ed473-5270-66f5-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 39.3124809265137,
+                "lapTimes": [
+                    21.4833240509033
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 1486
+            },
+            {
+                "racingTeamId": "422cce46-f679-7528-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": 51.8936920166016,
+                "lapTimes": [
+                    27.7131595611572
+                ],
+                "lapTimePenalties": [
+                    0
+                ],
+                "bestLapTimeIndex": 0,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 1412
+            },
+            {
+                "racingTeamId": "743c87f5-f71c-aa7e-0000-000000000000",
+                "vehicle": "stock-car",
+                "finishTime": null,
+                "lapTimes": [],
+                "lapTimePenalties": [],
+                "bestLapTimeIndex": -1,
+                "starsAchieved": 0,
+                "numLapsLed": 0,
+                "metresDriven": 703
+            }
+        ]
+    },
+    "resultPointsByRacingTeam": {
+        "dd74aa45-5d27-f36a-0000-000000000000": 0,
+        "039fb580-f6df-8194-0000-000000000000": 0,
+        "e8aaba4d-c796-6d32-0000-000000000000": 0,
+        "dbb5fd6b-1fbc-a5a2-0000-000000000000": 0,
+        "dac4d3d4-4973-1865-0000-000000000000": 0,
+        "ee2ed473-5270-66f5-0000-000000000000": 0,
+        "422cce46-f679-7528-0000-000000000000": 0,
+        "743c87f5-f71c-aa7e-0000-000000000000": 0
+    },
+    "metadata": {
+        "scenario_id": "00000000-0000-0000-0000-000000000000",
+        "scenario_result_id": "04b9c5a6-5b55-4ea8-8514-242961b3322b",
+        "scenario_name": "Stock Car Nationals",
+        "index_in_scenario": 0,
+        "recorder_id": "client"
+    },
+    "compressed": false,
+    "bytesOnDisk": "0014DE1B"
+}
