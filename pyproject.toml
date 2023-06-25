@@ -1,7 +1,7 @@
 
 [project]
 name = "csup_analyzer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Reads replay files from the game Circuit Superstars and offers tools to analyze the extracted data"
 authors = [
     {name = "Andre Petersen", email = "info@csup.app"},
