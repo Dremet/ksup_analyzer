@@ -1,6 +1,5 @@
 import pandas as pd
 from datetime import datetime
-from typing import Any
 from csup_analyzer.event.Result import RaceResult, QualiResult, RaceResultsDataFrame
 
 TRACK_NAMES_BY_REPLAY_NAMES = {
@@ -79,7 +78,6 @@ class Event:
     def create_result_dataframe(self) -> None:
         # The main result dataframe will be a subclass of pd.DataFrame.
         # This allows us to create custom methods on it.
-        #
         race_result_df = RaceResultsDataFrame(
             [result.as_series() for result in self.race.results]
         )
