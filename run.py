@@ -16,3 +16,6 @@ lineup = LineUp(fh.get_race_file_content())
 event = Event(lineup=lineup, race=race, quali=quali)
 event.create_result_dataframe()
 event.run_result_calculations()
+
+print(event.result_df)
+print(event.result_df.lap_position_table)
