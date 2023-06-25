@@ -40,9 +40,11 @@ After each race you can find a .header file for each session (e.g. one for quali
 
 `C:\Users\WINDOWS_USER\AppData\LocalLow\Square Enix Ltd\circuit-superstars\SOME_USER_ID\race-recordings`
 
-If you use pdm for your python environments you should be able to easily set up the environment with the pyproject.toml file. Otherwise a `requirements.txt` file is provided. 
+If you just want to use the library, simply install it like any other library with `pip install csup_analyzer` or `pdm add csup_analyzer`. 
 
-Then you can adapt the file paths in `run.py` and have fun with the modified pandas DataFrame accessible via `event.result_df`. 
+If you want to develop/contribute and you use pdm for your python environments you should be able to easily set up the environment with the pyproject.toml file (`pdm install`). Otherwise a `requirements.txt` file is provided. 
+
+Afterwards you can adapt the file paths in `run.py` to test it and have fun with the modified pandas DataFrame accessible via `event.result_df`. 
 
 
 ## Contribute
