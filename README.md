@@ -42,7 +42,7 @@ After each race you can find a .header file for each session (e.g. one for quali
 
 If you use pdm for your python environments you should be able to easily set up the environment with the pyproject.toml file. Otherwise a `requirements.txt` file is provided. 
 
-Then you can adapt that file paths in `run.py` and have fun with the modified pandas DataFrame accessible via `event.result_df`. 
+Then you can adapt the file paths in `run.py` and have fun with the modified pandas DataFrame accessible via `event.result_df`. 
 
 
 ## Contribute
