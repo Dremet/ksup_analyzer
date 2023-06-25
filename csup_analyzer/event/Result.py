@@ -153,7 +153,7 @@ class RaceResultsDataFrame(pd.DataFrame):
         else:
             # if we do not have the quali data, we estimate who started the race at which position
             # based on the time they needed in the beginning to cross the start/finish line (from lap 0 to lap 1 basically)
-            # This should be very precise if everyone starts the race and no mayhem happends before the line ;)
+            # This should be very precise if everyone starts the race and no mayhem happens before the line ;)
             self.sort_values(
                 by="time_until_starting_line_race", ascending=True, inplace=True
             )
