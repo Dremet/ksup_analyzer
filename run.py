@@ -19,3 +19,9 @@ event.run_result_calculations()
 
 print(event.result_df)
 print(event.result_df.lap_position_table)
+
+print(
+    event.result_df[
+        ["name", "fastest_lap_time_quali", "starting_position_race"]
+    ].sort_values(by="starting_position_race")
+)
