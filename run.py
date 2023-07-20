@@ -5,7 +5,7 @@ from csup_analyzer.plots.Plots import GapToWinnerTablePlot, LapPositionTablePlot
 
 fh = FileHandler(
     [
-        "example_replay_files/from_patch_1_5_0/20230716T21-06-01Z.header",
+        "example_replay_files/from_patch_1_5_0/20230621T19-18-00Z.header",
         "example_replay_files/from_patch_1_5_0/20230621T19-22-24Z.header",
     ]
 )
