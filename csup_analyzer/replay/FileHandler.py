@@ -50,4 +50,5 @@ class FileHandler:
             file_path.suffix == ".header" for file_path in file_paths
         ), "The file(s) you provided are not .header files!"
 
-        assert file_paths[0] != file_paths[1], "You provided the same file twice!"
+        if (len(file_paths) == 2):
+            assert file_paths[0] != file_paths[1], "You provided the same file twice!"
