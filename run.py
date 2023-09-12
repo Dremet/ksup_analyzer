@@ -1,6 +1,7 @@
 from csup_analyzer.replay.FileHandler import FileHandler
 from csup_analyzer.event.Event import Race, Quali, Event
 from csup_analyzer.event.LineUp import LineUp
+from csup_analyzer.plots.Plots import GapToWinnerTablePlot, LapPositionTablePlot, GapToLeaderTablePlot
 
 fh = FileHandler(
     [
@@ -25,3 +26,11 @@ print(
         ["name", "fastest_lap_time_quali", "starting_position_race"]
     ].sort_values(by="starting_position_race")
 )
+
+gapToWinnerPlot = GapToWinnerTablePlot(event.result_df, race)
+gapToWinnerPlot.plot(ymin=-5, ymax=15)
+lapPositionPlot = LapPositionTablePlot(event.result_df, race)
+lapPositionPlot.plot("Example_Replay")
+gapToLeaderPlot = GapToLeaderTablePlot(event.result_df, race)
+gapToLeaderPlot.plot(ymax=15)
+pass

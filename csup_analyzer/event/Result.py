@@ -105,6 +105,43 @@ class RaceResultsDataFrame(pd.DataFrame):
         df.index.rename("laps completed", inplace=True)
 
         return df
+    
+    @property
+    def gap_to_winner_table(self):
+        if "gap_to_winner_race" not in self.columns:
+            self.__calc_gap_to_winner()
+            print(
+                "WARNING: You tried to get the gap_to_winner_table before running '__calc_gap_to_winner()'. I did this for you although you should handle that. Do not run it twice."
+            )
+
+        # create lap table dataframe that has a column for every lap and a row for every driver
+        df = pd.DataFrame(self["gap_to_winner_race"].to_list())
+        df.index = self["name"]
+
+        # transposed every column name is a driver name and every row index is the laps completed
+        df = df.transpose()
+        df.index.rename("laps completed", inplace=True)
+
+        return df
+    
+    
+    @property
+    def gap_to_leader_table(self):
+        if "gap_to_leader_race" not in self.columns:
+            self.__calc_gap_to_leader()
+            print(
+                "WARNING: You tried to get the gap_to_leader_table before running '__calc_gap_to_leader()'. I did this for you although you should handle that. Do not run it twice."
+            )
+
+        # create lap table dataframe that has a column for every lap and a row for every driver
+        df = pd.DataFrame(self["gap_to_leader_race"].to_list())
+        df.index = self["name"]
+
+        # transposed every column name is a driver name and every row index is the laps completed
+        df = df.transpose()
+        df.index.rename("laps completed", inplace=True)
+
+        return df
 
     def _run_result_calculations(self) -> None:
         """
@@ -142,6 +179,8 @@ class RaceResultsDataFrame(pd.DataFrame):
         self.__calc_race_position()
         self.__interpolate_time_until_starting_line_race()
         self.__calc_lap_positions()
+        self.__calc_gap_to_winner()
+        self.__calc_gap_to_leader()
 
     def __calc_starting_position(self):
         if self.has_quali_data:
@@ -258,4 +297,131 @@ class RaceResultsDataFrame(pd.DataFrame):
             # error: ValueError: Must have equal len keys and value when setting with an iterable
             self.loc[self.index == i, "lap_positions_race"] = self.loc[
                 self.index == i, "lap_positions_race"
+            ].apply(lambda _: value)
+
+    def __calc_gap_to_winner(self):
+        """
+        We want to calculate the gap to the winner of each car on each lap and add a list of gaps as a new column in self.
+        In order reduce complexity we will create another dataframe called df that only holds the information we need.
+        """
+
+        # remove those that have no lap times and reduce the columns to what we really need
+        df = self.loc[
+            ~self["lap_times_race"].isna(),
+            [
+                "name",
+                "time_until_starting_line_race",
+                "lap_times_race",
+                "starting_position_race",
+                "end_position_race",
+            ],
+        ]
+
+        df_lap_times = pd.DataFrame(df["lap_times_race"].to_list())
+        df_lap_times.index = df.index
+
+        df_lap_times = pd.concat(
+            [df["time_until_starting_line_race"], df_lap_times],
+            axis=1,
+            ignore_index=True,
+        )
+        df_lap_times = df_lap_times.cumsum(axis=1)
+        df = pd.concat([df, df_lap_times], axis=1)
+        del df["lap_times_race"]
+
+        # now we have a df with the team id as an index and the lap numbers (from 0 to e.g. 10) as a column
+        # we do know the starting positions and the finishing positions already via the "starting_position" / "race_position" columns within df
+
+        for col in df_lap_times.columns:
+            df[f"Lap {col}"] = 0
+            for idx in range(len(df.index)):
+                df[f"Lap {col}"][idx] = df[col][idx] - df[col][0]
+            df.loc[df[col].isnull(), f"Lap {col}"] = np.NaN
+
+        df_gap_table = df.loc[
+            :,
+            [
+                col
+                for col in df.columns
+                if isinstance(col, str) and col.startswith("Lap")
+            ],
+        ]
+
+        df_gap_table = df_gap_table.fillna(method="bfill", axis=1)
+
+        # add the gaps in a column of self as a list
+        df_gap_table["gap_to_winner_race"] = df_gap_table.values.tolist()
+
+        self["gap_to_winner_race"] = np.nan
+
+        for i, value in df_gap_table["gap_to_winner_race"].items():
+            # simply assigning a list does not work unfortunately:
+            # error: ValueError: Must have equal len keys and value when setting with an iterable
+            self.loc[self.index == i, "gap_to_winner_race"] = self.loc[
+                self.index == i, "gap_to_winner_race"
+            ].apply(lambda _: value)
+
+    def __calc_gap_to_leader(self):
+        """
+        We want to calculate the gap to the leader of each car on each lap and add a list of gaps as a new column in self.
+        In order reduce complexity we will create another dataframe called df that only holds the information we need.
+        """
+
+        # remove those that have no lap times and reduce the columns to what we really need
+        df = self.loc[
+            ~self["lap_times_race"].isna(),
+            [
+                "name",
+                "time_until_starting_line_race",
+                "lap_times_race",
+                "starting_position_race",
+                "end_position_race",
+            ],
+        ]
+
+        df_lap_times = pd.DataFrame(df["lap_times_race"].to_list())
+        df_lap_times.index = df.index
+
+        df_lap_times = pd.concat(
+            [df["time_until_starting_line_race"], df_lap_times],
+            axis=1,
+            ignore_index=True,
+        )
+        df_lap_times = df_lap_times.cumsum(axis=1)
+        df = pd.concat([df, df_lap_times], axis=1)
+        del df["lap_times_race"]
+
+        # now we have a df with the team id as an index and the lap numbers (from 0 to e.g. 10) as a column
+        # we do know the starting positions and the finishing positions already via the "starting_position" / "race_position" columns within df
+
+        for col in df_lap_times.columns:
+            df.sort_values(by=col, inplace=True)
+            df[f"Lap {col}"] = 0
+            for idx in range(len(df.index)):
+                df[f"Lap {col}"][idx] = df[col][idx] - df[col][0]
+            df.loc[df[col].isnull(), f"Lap {col}"] = np.NaN
+
+        df.sort_values(by="end_position_race", inplace=True)
+        
+        df_gap_table = df.loc[
+            :,
+            [
+                col
+                for col in df.columns
+                if isinstance(col, str) and col.startswith("Lap")
+            ],
+        ]
+
+        df_gap_table = df_gap_table.fillna(method="bfill", axis=1)
+
+        # add the gap in a column of self as a list
+        df_gap_table["gap_to_leader_race"] = df_gap_table.values.tolist()
+
+        self["gap_to_leader_race"] = np.nan
+
+        for i, value in df_gap_table["gap_to_leader_race"].items():
+            # simply assigning a list does not work unfortunately:
+            # error: ValueError: Must have equal len keys and value when setting with an iterable
+            self.loc[self.index == i, "gap_to_leader_race"] = self.loc[
+                self.index == i, "gap_to_leader_race"
             ].apply(lambda _: value)

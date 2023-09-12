@@ -153,6 +153,11 @@ class Session:
 
         self.length_desc = f"{self.length} {self.length_type}s"
 
+    @property
+    def datetime_race(self):
+        return self.datetime_utc
+
+
 
 class Race(Session):
     def __init__(self, race_file_content: dict) -> None:
