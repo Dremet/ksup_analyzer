@@ -1,6 +1,0 @@
-Car Class: Dynamic
-Quali: 1:30
-Race: 2:00
-
-Prevent lapping collisions
-Qualify Each

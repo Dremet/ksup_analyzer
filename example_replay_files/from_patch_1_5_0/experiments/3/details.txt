@@ -1,6 +1,0 @@
-Car Class: GP
-Quali: 2km
-Race: 3km
-
-No collisions
-Qualify Each

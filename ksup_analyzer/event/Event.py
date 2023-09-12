@@ -1,6 +1,6 @@
 import pandas as pd
 from datetime import datetime
-from csup_analyzer.event.Result import RaceResult, QualiResult, RaceResultsDataFrame
+from ksup_analyzer.event.Result import RaceResult, QualiResult, RaceResultsDataFrame
 
 TRACK_NAMES_BY_REPLAY_NAMES = {
     "sunny-side-track": {"name": "Sunny Side Park", "layouts": {"Path-A": "GP"}},
@@ -156,7 +156,6 @@ class Session:
     @property
     def datetime_race(self):
         return self.datetime_utc
-
 
 
 class Race(Session):

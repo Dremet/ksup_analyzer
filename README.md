@@ -1,7 +1,11 @@
-# CSUP Analyzer
+# KSUP Analyzer
+
+This is based on the csup_analyzer.
 
 ## What
-Reads replay files (the .header files) from the game [Circuit Superstars](https://www.circuit-superstars.com/) and offers tools to analyze the extracted data. 
+Reads replay files (the .header files) from the game [Karting Superstars](https://store.steampowered.com/app/2503220/Karting_Superstars/) and offers tools to analyze the extracted data. 
+
+This
 
 The replay files hold information about (for quali and race respectively):
 - lap times
@@ -28,7 +32,7 @@ Besides reading them out of the files in a well-structured way and serving them 
 This is a community project kicked-off by Dremet but everyone is welcome to contribute and use the code, see Licence at the bottom.
 
 ## When
-This project was launched at the end of June 2023 when the version 1.5.0 of the game was released because the .header replay files did not hold that much valuable information before.
+This project was launched at the beginning of September 2023 when Karting Superstars was released. Previously, the csup_anazlyer was launched at the end of June 2023 when the version 1.5.0 of the game was released because the .header replay files did not hold that much valuable information before.
 
 ## Why
 The purpose of this libary is to analyze race data. There is currently no API you can request race data/statistics from and also there is no in-game race history/statistics functionality.
@@ -38,9 +42,9 @@ Another reason for this project is that the initial author, Dremet, is administr
 ## How
 After each race you can find a .header file for each session (e.g. one for qualification and one for the race) in a folder. Assuming your main drive is named **"C:"** as well you only need to replace "WINDOWS_USER" and "SOME_USER_ID" in the follow folder path to find the replay files on your computer:
 
-`C:\Users\WINDOWS_USER\AppData\LocalLow\Square Enix Ltd\circuit-superstars\SOME_USER_ID\race-recordings`
+`C:\Users\WINDOWS_USER\AppData\LocalLow\Original Fire Games\Karting Superstars\SOME_USER_ID\race-recordings`
 
-If you just want to use the library, simply install it like any other library with `pip install csup_analyzer` or `pdm add csup_analyzer`. 
+If you just want to use the library, simply install it like any other library with `pip install ksup_analyzer` or `pdm add ksup_analyzer`. 
 
 If you want to develop/contribute and you use pdm for your python environments you should be able to easily set up the environment with the pyproject.toml file (`pdm install`). Otherwise a `requirements.txt` file is provided. 
 
@@ -49,11 +53,11 @@ Afterwards you can adapt the file paths in `run.py` to test it and have fun with
 
 ## Contribute
 
-You are very welcome to work on this project and create pull requests! Feel free to contact me (Dremet) on Discord. You'll find me on (almost) all CSUP discord servers.
+You are very welcome to work on this project and create pull requests! Feel free to contact me (Dremet) on Discord. You'll find me on (almost) all CSUP/OFG (Original Fire Games) discord servers.
 
-If you want to add calculations please have a look at `csup_analyzer/event/Result.py`.
+If you want to add calculations please have a look at `ksup_analyzer/event/Result.py`.
 
-If you want to add visualization support please go to `csup_analyzer/plots/Plots.py`.
+If you want to add visualization support please go to `ksup_analyzer/plots/Plots.py`.
 
 ## License
 

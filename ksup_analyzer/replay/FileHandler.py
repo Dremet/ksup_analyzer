@@ -1,6 +1,6 @@
 from pathlib import Path
 from typing import List
-from csup_analyzer.replay.ReplayFile import QualiFile, RaceFile
+from ksup_analyzer.replay.ReplayFile import QualiFile, RaceFile
 
 
 class FileHandler:
@@ -50,5 +50,5 @@ class FileHandler:
             file_path.suffix == ".header" for file_path in file_paths
         ), "The file(s) you provided are not .header files!"
 
-        if (len(file_paths) == 2):
+        if len(file_paths) == 2:
             assert file_paths[0] != file_paths[1], "You provided the same file twice!"

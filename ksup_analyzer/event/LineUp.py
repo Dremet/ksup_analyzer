@@ -1,4 +1,4 @@
-from csup_analyzer.event.Driver import Driver
+from ksup_analyzer.event.Driver import Driver
 
 
 class LineUp:

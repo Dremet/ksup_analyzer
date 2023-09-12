@@ -1,7 +1,11 @@
-from csup_analyzer.replay.FileHandler import FileHandler
-from csup_analyzer.event.Event import Race, Quali, Event
-from csup_analyzer.event.LineUp import LineUp
-from csup_analyzer.plots.Plots import GapToWinnerTablePlot, LapPositionTablePlot, GapToLeaderTablePlot
+from ksup_analyzer.replay.FileHandler import FileHandler
+from ksup_analyzer.event.Event import Race, Quali, Event
+from ksup_analyzer.event.LineUp import LineUp
+from ksup_analyzer.plots.Plots import (
+    GapToWinnerTablePlot,
+    LapPositionTablePlot,
+    GapToLeaderTablePlot,
+)
 
 fh = FileHandler(
     [
