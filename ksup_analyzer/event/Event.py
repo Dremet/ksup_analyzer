@@ -35,6 +35,22 @@ TRACK_NAMES_BY_REPLAY_NAMES = {
         "name": "Whistle Valley",
         "layouts": {"Path-A": "GP", "Reverse": "GP – Reverse"},
     },
+    "hidden-lake-track": {
+        "name": "Hidden Lake",
+        "layouts": {
+            "Path-A": "Standard",
+            "Path-B": "Reverse",
+        },
+    },
+    "centrifuge-track": {
+        "name": "Centrifuge",
+        "layouts": {
+            "Path-A": "Standard",
+            "Path-B": "Reverse",
+            "Path-C": "Club",
+            "Path-D": "Club - Reverse",
+        },
+    },
     "tilksport-track": {
         "name": "Tilksport",
         "layouts": {
@@ -131,13 +147,12 @@ class Session:
             self.collisions = "All Collisions"
 
         self.has_wear = rc["wearMode"]
-        self.tire_wear = int(rc["wearCoefficients"]["tireWear"] * 100)
-        self.fuel_use = int(rc["wearCoefficients"]["fuelUse"] * 100)
-        self.vehicle_damage = int(rc["wearCoefficients"]["vehicleDamage"] * 100)
-        self.env_damage = int(rc["wearCoefficients"]["environmentDamage"] * 100)
+        # self.tire_wear = int(rc["wearCoefficients"]["tireWear"] * 100)
+        # self.fuel_use = int(rc["wearCoefficients"]["fuelUse"] * 100)
+        # self.vehicle_damage = int(rc["wearCoefficients"]["vehicleDamage"] * 100)
+        # self.env_damage = int(rc["wearCoefficients"]["environmentDamage"] * 100)
         self.slipstream = int(rc["geometricSlipStreamCoefficient"] * 100)
         self.rubberbanding = int(rc["standingsSlipStreamCoefficient"] * 100)
-        self.has_caravans = True if rc["spawnCaravans"] == "true" else False
 
         rec = rc["raceEndConditionConfig"]
 

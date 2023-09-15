@@ -1,7 +1,7 @@
 
 [project]
 name = "ksup_analyzer"
-version = "0.1.2"
+version = "0.1.4"
 description = "Reads replay files from the game Karting Superstars and offers tools to analyze the extracted data"
 authors = [
     {name = "Andre Petersen", email = "info@csup.app"},

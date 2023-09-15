@@ -22,8 +22,7 @@ class ReplayFile:
             file_content_raw.replace("\\", "")
             .replace('"raceConfiguration":"', '"raceConfiguration":')
             .replace('"raceConfiguration": "', '"raceConfiguration": ')
-            .replace('"spawnCaravans":false}",', '"spawnCaravans":false},')
-            .replace('"spawnCaravans":true}",', '"spawnCaravans":true},')
+            .replace('}","track":', '},"track":')
         )
 
 

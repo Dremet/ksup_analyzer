@@ -1,23 +1,7 @@
 import pandas as pd
 
 CAR_NAMES_BY_REPLAY_NAME = {
-    "4x4-agitator": "Agitator",
-    "50s-gt-brusso": "Brusso",
-    "60s-gp-osprey": "Osprey",
-    "80s-gp-generic": "Mantra",
-    "bambino-cup-bambino": "Piccino",
-    "eurotruck-geiger": "Bonk",
-    "gp-spectre": "Storm",
-    "gt-panther": "Panther",
-    "prototype-conquest": "Conquest",
-    "rally-vost": "Vost",
-    "sprint-car-tubular": "Tubular",
-    "stock-car": "Impact",
-    "superlights-feather": "Feather",
-    "touring-road-rebel": "Road Rebel",
-    "trans-am-generic": "Loose Cannon",
-    "top-gear-vehicle-nugget": "Rocket",
-    "top-gear-vehicle-pickup": "Indestructible",
+    "standard-kart": "Standard Kart",
 }
 
 
