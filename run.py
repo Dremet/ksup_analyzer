@@ -9,10 +9,11 @@ from ksup_analyzer.plots.Plots import (
 
 fh = FileHandler(
     [
-        "example_replay_files/from_patch_1_5_0/20230621T19-18-00Z.header",
-        "example_replay_files/from_patch_1_5_0/20230621T19-22-24Z.header",
+        "example_replay_files/20230915T22-07-51Z.header",
+        "example_replay_files/20230915T22-19-14Z.header",
     ]
 )
+
 
 quali = Quali(fh.get_quali_file_content())
 race = Race(fh.get_race_file_content())
@@ -37,4 +38,3 @@ lapPositionPlot = LapPositionTablePlot(event.result_df, race)
 lapPositionPlot.plot("Example_Replay")
 gapToLeaderPlot = GapToLeaderTablePlot(event.result_df, race)
 gapToLeaderPlot.plot(ymax=15)
-pass
