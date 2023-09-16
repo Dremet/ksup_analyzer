@@ -17,6 +17,7 @@ class Result:
         """
         self.driver_id = res["racingTeamId"]
 
+        self.starting_position = res["startPositionIndex"] + 1
         # this is the total time from session begin until the driver finsished the last lap
         # this is None if the driver did not finish
         # it does include the time a driver needs in "lap 0" until the beginning of lap 1 (crossing the start/finish line)
@@ -105,7 +106,7 @@ class RaceResultsDataFrame(pd.DataFrame):
         df.index.rename("laps completed", inplace=True)
 
         return df
-    
+
     @property
     def gap_to_winner_table(self):
         if "gap_to_winner_race" not in self.columns:
@@ -123,8 +124,7 @@ class RaceResultsDataFrame(pd.DataFrame):
         df.index.rename("laps completed", inplace=True)
 
         return df
-    
-    
+
     @property
     def gap_to_leader_table(self):
         if "gap_to_leader_race" not in self.columns:
@@ -148,6 +148,7 @@ class RaceResultsDataFrame(pd.DataFrame):
         Until this point self is a pandas dataframe with all the information from the header file(s).
 
         These are the columns which are available (the _quali columns only if a quali header files was provided):
+        - 'starting_position_race'
         - 'fastest_lap_time_race'
         - 'lap_time_penalties_race'
         - 'lap_times_race'
@@ -175,28 +176,11 @@ class RaceResultsDataFrame(pd.DataFrame):
 
         Now it is about calculating more valuable variables out of the data available, f.e. positions per lap.
         """
-        self.__calc_starting_position()
         self.__calc_race_position()
         self.__interpolate_time_until_starting_line_race()
         self.__calc_lap_positions()
         self.__calc_gap_to_winner()
         self.__calc_gap_to_leader()
-
-    def __calc_starting_position(self):
-        if self.has_quali_data:
-            self.sort_values(
-                by=["fastest_lap_time_quali", "time_until_starting_line_race"],
-                ascending=True,
-                inplace=True,
-            )
-        else:
-            # if we do not have the quali data, we estimate who started the race at which position
-            # based on the time they needed in the beginning to cross the start/finish line (from lap 0 to lap 1 basically)
-            # This should be very precise if everyone starts the race and no mayhem happens before the line ;)
-            self.sort_values(
-                by="time_until_starting_line_race", ascending=True, inplace=True
-            )
-        self["starting_position_race"] = list(range(1, len(self.index) + 1))
 
     def __calc_race_position(self):
         self.sort_values(
@@ -285,7 +269,7 @@ class RaceResultsDataFrame(pd.DataFrame):
         # if someone has been lapped we want to see the final position anyways
         # example: there are 20 laps and someone did 18. We know his position until lap 18 and in the finish (lap 20)
         # therefore when backfilling we fill lap 19 position with the position at lap 20 cause that should be the same
-        df_lap_table = df_lap_table.fillna(method="bfill", axis=1)
+        df_lap_table = df_lap_table.bfill(axis=1)
 
         # add the lap positions in a column of self as a list
         df_lap_table["lap_positions_race"] = df_lap_table.values.tolist()
@@ -347,7 +331,7 @@ class RaceResultsDataFrame(pd.DataFrame):
             ],
         ]
 
-        df_gap_table = df_gap_table.fillna(method="bfill", axis=1)
+        df_gap_table = df_gap_table.bfill(axis=1)
 
         # add the gaps in a column of self as a list
         df_gap_table["gap_to_winner_race"] = df_gap_table.values.tolist()
@@ -396,13 +380,13 @@ class RaceResultsDataFrame(pd.DataFrame):
 
         for col in df_lap_times.columns:
             df.sort_values(by=col, inplace=True)
-            df[f"Lap {col}"] = 0
+            df[f"Lap {col}"] = 0.0
             for idx in range(len(df.index)):
-                df[f"Lap {col}"][idx] = df[col][idx] - df[col][0]
+                df.at[idx, f"Lap {col}"] = df[col].iloc[idx] - df[col].iloc[0]
             df.loc[df[col].isnull(), f"Lap {col}"] = np.NaN
 
         df.sort_values(by="end_position_race", inplace=True)
-        
+
         df_gap_table = df.loc[
             :,
             [
@@ -412,7 +396,7 @@ class RaceResultsDataFrame(pd.DataFrame):
             ],
         ]
 
-        df_gap_table = df_gap_table.fillna(method="bfill", axis=1)
+        df_gap_table = df_gap_table.bfill(axis=1)
 
         # add the gap in a column of self as a list
         df_gap_table["gap_to_leader_race"] = df_gap_table.values.tolist()
