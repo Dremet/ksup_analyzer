@@ -9,8 +9,8 @@ from ksup_analyzer.plots.Plots import (
 
 fh = FileHandler(
     [
-        "example_replay_files/20230915T22-07-51Z.header",
-        "example_replay_files/20230915T22-19-14Z.header",
+        "example_replay_files/20231006T22-06-00Z.header",
+        "example_replay_files/20231006T22-16-08Z.header",
     ]
 )
 
@@ -33,8 +33,8 @@ print(
 )
 
 gapToWinnerPlot = GapToWinnerTablePlot(event.result_df, race)
-gapToWinnerPlot.plot(ymin=-5, ymax=15)
+gapToWinnerPlot.plot(ymin=event.result_df.gap_to_winner_min, ymax=event.result_df.gap_to_winner_max)
 lapPositionPlot = LapPositionTablePlot(event.result_df, race)
 lapPositionPlot.plot("Example_Replay")
 gapToLeaderPlot = GapToLeaderTablePlot(event.result_df, race)
-gapToLeaderPlot.plot(ymax=15)
+gapToLeaderPlot.plot(ymax=event.result_df.gap_to_leader_max)
