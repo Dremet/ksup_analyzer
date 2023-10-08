@@ -6,34 +6,37 @@ TRACK_NAMES_BY_REPLAY_NAMES = {
     "sunny-side-track": {"name": "Sunny Side Park", "layouts": {"Path-A": "GP"}},
     "sugar-hill-track": {
         "name": "Sugar Hill",
-        "layouts": {"Default-Path": "GP", "Reverse-Path": "GP – Reverse"},
+        "layouts": {"Default-Path": "Full", "Reverse-Path": "Full – Reverse"},
     },
     "maple-ridge-track": {
         "name": "Maple Ridge",
-        "layouts": {"Path-A": "GP", "Reverse": "GP – Reverse"},
+        "layouts": {"Path-A": "Full", "Reverse": "Full – Reverse"},
     },
     "rennvoort-track": {
         "name": "Rennvoort",
-        "layouts": {"Path-A": "GP", "Reverse": "GP – Reverse"},
+        "layouts": {"Path-A": "Full", "Reverse": "Full – Reverse"},
     },
     "rivazza-track": {"name": "Faenza", "layouts": {"Path-A": "GP"}},
     "magdalena-track": {
         "name": "Magdalena",
-        "layouts": {"Path-A": "GP", "Path-B": "Club"},
+        "layouts": {"Path-A": "Full", "Path-B": "Club"},
     },
     "copperwood-track": {
         "name": "Cooperwood",
         "layouts": {
-            "Path-A": "GP",
+            "Path-A": "Full",
             "Path-B": "Club",
-            "Full-Reverse": "GP – Reverse",
+            "Full-Reverse": "Full – Reverse",
             "Club-Reverse": "Club – Reverse",
         },
     },
-    "siena-track": {"name": "Siena", "layouts": {"Path-A": "GP"}},
+    "siena-track": {
+        "name": "Siena",
+        "layouts": {"Path-A": "Full", "Reverse": "Reverse"},
+    },
     "whistlevalley-track": {
         "name": "Whistle Valley",
-        "layouts": {"Path-A": "GP", "Reverse": "GP – Reverse"},
+        "layouts": {"Path-A": "Full", "Reverse": "Full – Reverse"},
     },
     "hidden-lake-track": {
         "name": "Hidden Lake",
@@ -54,19 +57,19 @@ TRACK_NAMES_BY_REPLAY_NAMES = {
     "tilksport-track": {
         "name": "Tilksport",
         "layouts": {
-            "Path-A": "GP",
+            "Path-A": "Full",
             "Path-B": "Club",
             "Path-C": "Rallycross",
-            "Full-Reverse": "GP – Reverse",
+            "Full-Reverse": "Full – Reverse",
             "Club-Reverse": "Club – Reverse",
         },
     },
     "thunder-valley-track": {
         "name": "Thunder Point",
         "layouts": {
-            "Path-A": "GP",
+            "Path-A": "Full",
             "Path-B": "Club",
-            "Path-A-Reverse": "GP – Reverse",
+            "Path-A-Reverse": "Full – Reverse",
             "Path-B-Reverse": "Club – Reverse",
         },
     },

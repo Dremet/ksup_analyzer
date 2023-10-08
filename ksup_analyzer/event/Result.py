@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+pd.set_option("mode.chained_assignment", None)
+
 
 class Result:
     def __init__(self, results_dict: dict) -> None:
@@ -22,6 +24,11 @@ class Result:
         # this is None if the driver did not finish
         # it does include the time a driver needs in "lap 0" until the beginning of lap 1 (crossing the start/finish line)
         self.total_time = res["finishTime"]
+        self.total_time_formatted = "{}:{}.{}".format(
+            np.floor(self.total_time / 60).astype(int),
+            np.floor(self.total_time % 60).astype(int),
+            np.floor((self.total_time - np.floor(self.total_time)) * 1000).astype(int),
+        )
         # list of lap times
         self.lap_times = res["lapTimes"]
         # number of laps driven, relevant for lappings
@@ -35,6 +42,14 @@ class Result:
         self.num_laps_led = res["numLapsLed"]
         # metres driven, not sure if relevant
         self.metres_driven = res["metresDriven"]
+        # number of track limit penalties
+        self.number_track_limit_penalties = res["numTrackLimitsPenalties"]
+        # overall track limit penalties in seconds
+        self.sum_track_limit_penalties_seconds = res["totalTrackLimitsPenaltySeconds"]
+        # number of wall assist penalties
+        self.number_track_limit_penalties = res["numWallAssistPenalties"]
+        # overall wall assist penalties in seconds
+        self.sum_track_limit_penalties_seconds = res["totalWallAssistPenaltySeconds"]
 
         # as the total time includes the time from the starting position to the start/finish line
         # and the lap times do not, we can extract the time the driver needed to get there
@@ -157,6 +172,11 @@ class RaceResultsDataFrame(pd.DataFrame):
         - 'num_laps_led_race'
         - 'time_until_starting_line_race'
         - 'total_time_race'
+        - 'total_time_formatted_race'
+        - 'number_track_limit_penalties_race'
+        - 'sum_track_limit_penalties_seconds_race'
+        - 'number_track_limit_penalties_race'
+        - 'sum_track_limit_penalties_seconds_race'
 
         - 'fastest_lap_time_quali'
         - 'lap_time_penalties_quali'
@@ -166,6 +186,11 @@ class RaceResultsDataFrame(pd.DataFrame):
         - 'num_laps_led_quali'
         - 'time_until_starting_line_quali'
         - 'total_time_quali'
+        - 'total_time_formatted_quali'
+        - 'number_track_limit_penalties_quali'
+        - 'sum_track_limit_penalties_seconds_quali'
+        - 'number_track_limit_penalties_quali'
+        - 'sum_track_limit_penalties_seconds_quali'
 
         - 'car'
         - 'colors'
@@ -181,6 +206,20 @@ class RaceResultsDataFrame(pd.DataFrame):
         self.__calc_lap_positions()
         self.__calc_gap_to_winner()
         self.__calc_gap_to_leader()
+        self.__calc_slowest_lap_time()
+        self.__calc_median_lap_time()
+
+    def __calc_slowest_lap_time(self):
+        # provide slowest lap but exclude lap 1 (due to accelaration)
+        self["slowest_lap_time_race"] = np.max(
+            self["lap_times_race"].apply(lambda x: x[1:]).to_list(), axis=1
+        )
+
+    def __calc_median_lap_time(self):
+        # provide median lap but exclude lap 1 (due to accelaration)
+        self["median_lap_time_race"] = np.median(
+            self["lap_times_race"].apply(lambda x: x[1:]).to_list(), axis=1
+        )
 
     def __calc_race_position(self):
         self.sort_values(
@@ -344,6 +383,11 @@ class RaceResultsDataFrame(pd.DataFrame):
             self.loc[self.index == i, "gap_to_winner_race"] = self.loc[
                 self.index == i, "gap_to_winner_race"
             ].apply(lambda _: value)
+
+        # in order to make the gap at the end more visible, let's provide a column just for that
+        self["gap_to_winner_finish_race"] = self["gap_to_winner_race"].apply(
+            lambda x: x[-1] if x else np.nan
+        )
 
     def __calc_gap_to_leader(self):
         """
