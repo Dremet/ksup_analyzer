@@ -214,15 +214,21 @@ class RaceResultsDataFrame(pd.DataFrame):
 
     def __calc_slowest_lap_time(self):
         # provide slowest lap but exclude lap 1 (due to accelaration)
-        self["slowest_lap_time_race"] = np.max(
-            self["lap_times_race"].apply(lambda x: x[1:]).to_list(), axis=1
+        laps = pd.DataFrame(
+            self["lap_times_race"].apply(lambda x: x[1:]).to_list(),
+            index=self["lap_times_race"].index,
         )
+
+        self["slowest_lap_time_race"] = laps.max(axis=1)
 
     def __calc_median_lap_time(self):
         # provide median lap but exclude lap 1 (due to accelaration)
-        self["median_lap_time_race"] = np.median(
-            self["lap_times_race"].apply(lambda x: x[1:]).to_list(), axis=1
+        laps = pd.DataFrame(
+            self["lap_times_race"].apply(lambda x: x[1:]).to_list(),
+            index=self["lap_times_race"].index,
         )
+
+        self["median_lap_time_race"] = laps.median(axis=1)
 
     def __calc_race_position(self):
         self.sort_values(
