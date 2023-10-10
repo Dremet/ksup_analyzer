@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import math
 
 pd.set_option("mode.chained_assignment", None)
 
@@ -103,7 +104,7 @@ class RaceResultsDataFrame(pd.DataFrame):
     @property
     def participants(self):
         return len(self.index)
-
+    
     @property
     def lap_position_table(self):
         if "lap_positions_race" not in self.columns:
@@ -139,6 +140,18 @@ class RaceResultsDataFrame(pd.DataFrame):
         df.index.rename("laps completed", inplace=True)
 
         return df
+    
+    @property
+    def gap_to_winner_min(self):
+        return self["gap_to_winner_min"].values[0]
+    
+    @property
+    def gap_to_winner_max(self):
+        return self["gap_to_winner_max"].values[0]
+    
+    @property
+    def gap_to_leader_max(self):
+        return self["gap_to_leader_max"].values[0]
 
     @property
     def gap_to_leader_table(self):
@@ -398,6 +411,18 @@ class RaceResultsDataFrame(pd.DataFrame):
             lambda x: x[-1] if x else np.nan
         )
 
+        # calculate range of gap to winner
+        gap_to_winner_min = 0.0
+        gap_to_winner_max = 0.0
+        for gap_list in self["gap_to_winner_race"]:
+            if max(gap_list) > gap_to_winner_max:
+                gap_to_winner_max = max(gap_list)
+            if min(gap_list) < gap_to_winner_min:
+                gap_to_winner_min = min(gap_list)
+
+        self["gap_to_winner_max"] = math.ceil(gap_to_winner_max)
+        self["gap_to_winner_min"] = math.floor(gap_to_winner_min)      
+
     def __calc_gap_to_leader(self):
         """
         We want to calculate the gap to the leader of each car on each lap and add a list of gaps as a new column in self.
@@ -433,13 +458,13 @@ class RaceResultsDataFrame(pd.DataFrame):
 
         for col in df_lap_times.columns:
             df.sort_values(by=col, inplace=True)
-            df[f"Lap {col}"] = 0.0
+            df[f"Lap {col}"] = 0
             for idx in range(len(df.index)):
-                df.at[idx, f"Lap {col}"] = df[col].iloc[idx] - df[col].iloc[0]
+                df[f"Lap {col}"][idx] = df[col][idx] - df[col][0]
             df.loc[df[col].isnull(), f"Lap {col}"] = np.NaN
 
         df.sort_values(by="end_position_race", inplace=True)
-
+        
         df_gap_table = df.loc[
             :,
             [
@@ -449,7 +474,7 @@ class RaceResultsDataFrame(pd.DataFrame):
             ],
         ]
 
-        df_gap_table = df_gap_table.bfill(axis=1)
+        df_gap_table = df_gap_table.fillna(method="bfill", axis=1)
 
         # add the gap in a column of self as a list
         df_gap_table["gap_to_leader_race"] = df_gap_table.values.tolist()
@@ -462,3 +487,11 @@ class RaceResultsDataFrame(pd.DataFrame):
             self.loc[self.index == i, "gap_to_leader_race"] = self.loc[
                 self.index == i, "gap_to_leader_race"
             ].apply(lambda _: value)
+
+         # calculate range of gap to leader
+        gap_to_leader_max = 0.0
+        for gap_list in self["gap_to_leader_race"]:
+            if max(gap_list) > gap_to_leader_max:
+                gap_to_leader_max = max(gap_list)
+
+        self["gap_to_leader_max"] = math.ceil(gap_to_leader_max)   
