@@ -201,9 +201,6 @@ class RaceResultsDataFrame(pd.DataFrame):
 
         Now it is about calculating more valuable variables out of the data available, f.e. positions per lap.
         """
-        print('self["sum_track_limit_penalties_seconds_race"]')
-        print(self["sum_track_limit_penalties_seconds_race"])
-        print(self["metres_driven_race"])
         self.__calc_race_position()
         self.__interpolate_time_until_starting_line_race()
         self.__calc_lap_positions()
